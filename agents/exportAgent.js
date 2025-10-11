@@ -50,6 +50,10 @@ export class ExportAgent {
   async exportToPNG(html, filename) {
     console.log('🖼️  Export Agent: Generating PNG...');
 
+    if (!fs.existsSync(this.outputDir)) {
+      fs.mkdirSync(this.outputDir, { recursive: true });
+    }
+
     const browser = await puppeteer.launch({
       headless: 'new',
       args: [
@@ -64,6 +68,7 @@ export class ExportAgent {
 
     try {
       const page = await browser.newPage();
+  await page.emulateMediaType('screen');
       await page.setViewport({ width: 1200, height: 1600 });
       await page.setContent(html, { waitUntil: 'networkidle0' });
 
@@ -83,6 +88,10 @@ export class ExportAgent {
   async exportPNGOnly(html, filename) {
     console.log('🖼️  Export Agent: Generating PNG only...');
 
+    if (!fs.existsSync(this.outputDir)) {
+      fs.mkdirSync(this.outputDir, { recursive: true });
+    }
+
     const browser = await puppeteer.launch({
       headless: 'new',
       args: [
@@ -97,6 +106,7 @@ export class ExportAgent {
 
     try {
       const page = await browser.newPage();
+      await page.emulateMediaType('screen');
       await page.setViewport({ width: 1200, height: 1600 });
       await page.setContent(html, { waitUntil: 'networkidle0' });
 

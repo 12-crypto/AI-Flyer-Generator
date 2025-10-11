@@ -109,23 +109,46 @@ export class DesignAgent {
       padding: 0;
       box-sizing: border-box;
     }
+    :root {
+      --page-width: 1200px;
+      --grid-cols: 5;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --radius-s: 8px;
+      --radius-m: 12px;
+      --radius-l: 18px;
+      --radius-xl: 22px;
+      --shadow-1: 0 2px 6px rgba(0,0,0,0.12);
+      --shadow-2: 0 6px 12px rgba(0,0,0,0.18);
+      --shadow-3: 0 8px 16px rgba(0,0,0,0.22);
+      --brand-green: #2e7d32;
+      --brand-yellow: #ffd54f;
+      --brand-orange: #ff9800;
+      --brand-orange2: #ff7043;
+    }
     
     body {
       font-family: 'Arial Black', Arial, sans-serif;
-      background: white;
-      width: 1200px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.3;
+      background: #fff;
+      width: var(--page-width);
       margin: 0 auto;
     }
     
     .header {
       /* Fresh produce inspired left tone fading into warm weekly banner colors */
-      background: linear-gradient(135deg, #2e7d32 0%, #43a047 20%, #ffd54f 60%, #ff9800 85%, #ff7043 100%);
+      background: linear-gradient(135deg, var(--brand-green) 0%, #43a047 20%, var(--brand-yellow) 60%, var(--brand-orange) 85%, var(--brand-orange2) 100%);
       padding: 28px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: relative;
-      border-bottom: 5px solid #000;
+      border-bottom: 6px solid #000;
       min-height: 130px;
     }
     
@@ -135,9 +158,9 @@ export class DesignAgent {
       align-items: center;
       justify-content: center;
       background: #fff;
-      border-radius: 18px;
+      border-radius: var(--radius-l);
       padding: 18px 20px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      box-shadow: var(--shadow-2);
       border: 3px solid #fff;
     }
     
@@ -191,11 +214,11 @@ export class DesignAgent {
 
     .weekly-banner {
       width: 100%;
-      background: #ffd54f;
+      background: var(--brand-yellow);
       border: 4px solid #000;
-      border-radius: 22px;
+      border-radius: var(--radius-xl);
       padding: 12px 22px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+      box-shadow: var(--shadow-3);
     }
 
     .weekly-title {
@@ -214,12 +237,13 @@ export class DesignAgent {
     }
 
     .weekly-dates {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       color: #111;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
     
     /* sale-badge replaced by weekly-banner */
@@ -230,24 +254,25 @@ export class DesignAgent {
     
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(var(--grid-cols), 1fr);
+      gap: 16px;
       padding: 24px;
       background: #ffffff;
     }
     
     .product-card {
-      border: 2px solid #e0e0e0;
-      padding: 10px 10px 12px;
+      border: 2px solid #e8e8e8;
+      padding: 12px 12px 14px;
       text-align: center;
       background: #fff;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border-radius: 10px;
+      border-radius: var(--radius-m);
       position: relative;
-      min-height: 230px;
+      min-height: 260px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: var(--shadow-1);
     }
     
     .product-card.featured {
@@ -264,13 +289,13 @@ export class DesignAgent {
     
     .product-image-container {
       width: 100%;
-      height: 100px;
+      height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 10px;
       background: #f9f9f9;
-      border-radius: 8px;
+      border-radius: var(--radius-s);
       overflow: hidden;
     }
     
@@ -297,9 +322,13 @@ export class DesignAgent {
       font-size: 20px;
       font-weight: 900;
       margin: 6px 0;
-      min-height: 38px;
       color: #1a1a1a;
-      line-height: 1.25;
+      line-height: 1.2;
+      min-height: 48px; /* reserve space for 2 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     
     .product-price {
@@ -314,6 +343,7 @@ export class DesignAgent {
       box-shadow: 0 2px 0 rgba(0,0,0,0.25);
       border: 2px solid #000;
       min-width: 110px;
+      letter-spacing: 0.2px;
     }
     
     /* Alternate price colors by COLUMN (5-column grid): odd columns black, even columns yellow */
@@ -336,6 +366,11 @@ export class DesignAgent {
       color: #4f4f4f;
       margin-top: 4px;
       font-weight: 800;
+    }
+
+    /* Push price/unit section to the bottom for perfect row alignment */
+    .product-card > div:last-child {
+      margin-top: auto;
     }
     
     .special-offer-badge {
@@ -492,6 +527,11 @@ export class DesignAgent {
         <small style="font-size: 12px; color: #666;">Logo Not Found</small>
       </div>
       {{/if}}
+    </div>
+
+    <div class="header-center">
+      <div class="brand-title">STAR<br>BAZAAR</div>
+      <div class="attraction-pill">{{attractionText}}</div>
     </div>
 
     <div class="header-right">

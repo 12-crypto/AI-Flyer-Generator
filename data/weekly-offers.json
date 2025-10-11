@@ -92,6 +92,47 @@
       "specialOffer": true,
       "offerType": "discount",
       "category": "frozen"
+    },
+    {
+      "name": "Parliament Atta",
+      "price": "$12.99",
+      "unit": "20LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "flour"
+    },
+    {
+      "name": "Deep Idli Rava",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "grains"
+    },
+    {
+      "name": "Brio Sunflower Oil",
+      "price": "$15.99",
+      "unit": "5LT",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "oil",
+      "image": "./images/products/oil.jpg"
+    },
+    {
+      "name": "Haldiram Jumbo Aloo Tikki",
+      "price": "$16.99",
+      "unit": "1.75kg (22pcs)",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "frozen"
+    },
+        {
+      "name": "Haldiram Jumbo Aloo Tikki",
+      "price": "$16.99",
+      "unit": "1.75kg (22pcs)",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "frozen"
     }
   ]
 }
