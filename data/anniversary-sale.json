@@ -1,0 +1,212 @@
+{
+  "saleInfo": {
+    "templateType": "anniversary",
+    "storeName": "STAR BAZAAR",
+    "dateRange": "SEPTEMBER 11 TO SEPTEMBER 17",
+    "address": "2431 W Main St, Norristown, PA - 19403",
+    "email": "starbazaarpa@gmail.com",
+    "phone": "484 986 0990"
+  },
+  "products": [
+    {
+      "name": "Plum Tomato",
+      "price": "$1.29",
+      "unit": "/LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "vegetables"
+    },
+    {
+      "name": "Gongura Leaf",
+      "price": "$3.99",
+      "unit": "/LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "vegetables"
+    },
+    {
+      "name": "Tindora",
+      "price": "$2.49",
+      "unit": "/LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "vegetables"
+    },
+    {
+      "name": "Green Chilli Small",
+      "price": "$2.49",
+      "unit": "/LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "vegetables"
+    },
+    {
+      "name": "Indian Okra",
+      "price": "$0.99",
+      "unit": "/LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "vegetables"
+    },
+    {
+      "name": "Chinese Okra",
+      "price": "$2.29",
+      "unit": "/LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "vegetables"
+    },
+    {
+      "name": "Laxmi Sona Masoori Rice",
+      "price": "$34.99",
+      "unit": "20LB x2",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "rice"
+    },
+    {
+      "name": "Bombay Kitchen Snacks",
+      "price": "2 For $3.00",
+      "unit": "",
+      "specialOffer": true,
+      "offerType": "bundle",
+      "category": "snacks"
+    },
+    {
+      "name": "Tata Tea Gold",
+      "price": "$9.99",
+      "unit": "1KG",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "beverages"
+    },
+    {
+      "name": "Star Bazaar Almonds",
+      "price": "$17.99",
+      "unit": "3LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "nuts"
+    },
+    {
+      "name": "Star Bazaar Walnut",
+      "price": "$15.99",
+      "unit": "2.5LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "nuts"
+    },
+    {
+      "name": "Chings Veg Noodles",
+      "price": "2 For $6.00",
+      "unit": "560GM",
+      "specialOffer": true,
+      "offerType": "bundle",
+      "category": "noodles"
+    },
+    {
+      "name": "Allegro Sunflower Oil",
+      "price": "$13.99",
+      "unit": "5lt",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "oil"
+    },
+    {
+      "name": "Laxmi Sooji",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "flour"
+    },
+    {
+      "name": "Laxmi Besan",
+      "price": "$5.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "flour"
+    },
+    {
+      "name": "Laxmi Masoor Dal",
+      "price": "$5.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Kabuli Channa",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Channa Dal",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Urad Gota Dal",
+      "price": "$6.99",
+      "unit": "4LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Red Kidney Bean",
+      "price": "$5.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Toor Dal",
+      "price": "$6.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Kala Channa",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "lentils"
+    },
+    {
+      "name": "Laxmi Moong Dal",
+      "price": "$5.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "lentils"
+    },
+    {
+      "name": "Nutrela Soya Chunks",
+      "price": "4 For $6.00",
+      "unit": "220gm",
+      "specialOffer": true,
+      "offerType": "bundle",
+      "category": "protein"
+    },
+    {
+      "name": "Deep Garlic/Tandoori Naan",
+      "price": "$6.99",
+      "unit": "F.P",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "bread"
+    }
+  ]
+}

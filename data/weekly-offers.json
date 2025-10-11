@@ -1,0 +1,97 @@
+{
+  "saleInfo": {
+    "templateType": "weekly",
+    "storeName": "STAR BAZAAR",
+    "dateRange": "OCTOBER 10 TO OCTOBER 17, 2025",
+    "address": "2431 W Main St, Norristown, PA - 19403",
+    "email": "starbazaarpa@gmail.com",
+    "phone": "484 986 0990"
+  },
+  "products": [
+    {
+      "name": "Laxmi Sonamasoori Rice",
+      "price": "$33.99",
+      "unit": "40LB",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "rice",
+      "image": "./images/products/rice.jpg"
+    },
+    {
+      "name": "Deep Tandoori Naan / Garlic Naan",
+      "price": "$6.99",
+      "unit": "F.P",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "bread",
+      "image": "./images/products/naan.jpg"
+    },
+    {
+      "name": "Laxmi Extra Long Basmati Rice",
+      "price": "2 for $25",
+      "unit": "10LB",
+      "specialOffer": true,
+      "offerType": "bundle",
+      "category": "rice",
+      "image": "./images/products/basmati.jpg"
+    },
+    {
+      "name": "Frooti Mango Drink",
+      "price": "$12.99",
+      "unit": "27 x 200ml",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "beverages"
+    },
+    {
+      "name": "Maggi Noodles",
+      "price": "2 for $7",
+      "unit": "560gm",
+      "specialOffer": true,
+      "offerType": "bundle",
+      "category": "noodles",
+      "image": "./images/products/maggi.jpg"
+    },
+    {
+      "name": "Royal Chef Basmati Rice",
+      "price": "$47.99",
+      "unit": "40LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "rice"
+    },
+    {
+      "name": "Parliament Atta",
+      "price": "$12.99",
+      "unit": "20LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "flour"
+    },
+    {
+      "name": "Deep Idli Rava",
+      "price": "$4.99",
+      "unit": "4LB",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "grains"
+    },
+    {
+      "name": "Brio Sunflower Oil",
+      "price": "$15.99",
+      "unit": "5LT",
+      "specialOffer": false,
+      "offerType": "regular",
+      "category": "oil",
+      "image": "./images/products/oil.jpg"
+    },
+    {
+      "name": "Haldiram Jumbo Aloo Tikki",
+      "price": "$16.99",
+      "unit": "1.75kg (22pcs)",
+      "specialOffer": true,
+      "offerType": "discount",
+      "category": "frozen"
+    }
+  ]
+}

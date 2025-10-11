@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAR BAZAAR - WEEKLY SPECIAL</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial Black', Arial, sans-serif;
+      background: white;
+      width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 50%, #FF6B6B 100%);
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      border-bottom: 5px solid #000;
+    }
+    
+    .sale-badge {
+      background: radial-gradient(circle, #FF0000, #CC0000);
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 25px 35px;
+      border-radius: 50%;
+      display: inline-block;
+      transform: rotate(-10deg);
+      margin: 15px;
+      border: 6px solid white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .header h1 {
+      font-size: 56px;
+      color: white;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+      margin: 10px 0;
+      letter-spacing: 2px;
+    }
+    
+    .date-range {
+      font-size: 24px;
+      color: #000;
+      background: white;
+      display: inline-block;
+      padding: 10px 30px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-top: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      padding: 30px;
+      background: #f5f5f5;
+    }
+    
+    .product-card {
+      border: 3px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      background: white;
+      transition: all 0.3s;
+      border-radius: 8px;
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .product-card.featured {
+      border: 4px solid #FF6B6B;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFE6E6 100%);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+      transform: scale(1.02);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .product-image-container {
+      width: 100%;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .product-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    
+    .no-image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+      border-radius: 6px;
+    }
+    
+    .product-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+      min-height: 40px;
+      color: #222;
+      line-height: 1.3;
+    }
+    
+    .product-price {
+      font-size: 28px;
+      font-weight: 900;
+      color: #000;
+      background: #FFD93D;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border: 3px solid #000;
+    }
+    
+    .product-card.featured .product-price {
+      background: #FF6B6B;
+      color: white;
+    }
+    
+    .product-unit {
+      font-size: 14px;
+      color: #666;
+      margin-top: 6px;
+      font-weight: bold;
+    }
+    
+    .special-offer-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: red;
+      color: white;
+      padding: 8px 15px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transform: rotate(10deg);
+      z-index: 10;
+    }
+    
+    .footer {
+      background: #000;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      margin-top: 0;
+    }
+    
+    .footer-highlight {
+      background: #FFD93D;
+      color: #000;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 12px 25px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    
+    .footer-info {
+      font-size: 15px;
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+    
+    .footer-disclaimer {
+      font-size: 11px;
+      margin-top: 15px;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="sale-badge">WEEKLY SPECIAL</div>
+    <h1>⭐ STAR BAZAAR ⭐</h1>
+    <div class="date-range">OCTOBER 10 TO OCTOBER 17, 2025</div>
+  </div>
+  
+  <div class="products-grid">
+    <div class="product-card featured">
+      <div class="special-offer-badge">SPECIAL!</div>
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Laxmi Sonamasoori Rice</div>
+      <div>
+        <div class="product-price">$33.99</div>
+        <div class="product-unit">40LB</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      <div class="special-offer-badge">SPECIAL!</div>
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Laxmi Extra Long Basmati Rice</div>
+      <div>
+        <div class="product-price">2 for $25</div>
+        <div class="product-unit">10LB</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      <div class="special-offer-badge">SPECIAL!</div>
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Maggi Noodles</div>
+      <div>
+        <div class="product-price">2 for $7</div>
+        <div class="product-unit">560gm</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      <div class="special-offer-badge">SPECIAL!</div>
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Haldiram Jumbo Aloo Tikki</div>
+      <div>
+        <div class="product-price">$16.99</div>
+        <div class="product-unit">1.75kg (22pcs)</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Deep Tandoori Naan / Garlic Naan</div>
+      <div>
+        <div class="product-price">$6.99</div>
+        <div class="product-unit">F.P</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Frooti Mango Drink</div>
+      <div>
+        <div class="product-price">$12.99</div>
+        <div class="product-unit">27 x 200ml</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Royal Chef Basmati Rice</div>
+      <div>
+        <div class="product-price">$47.99</div>
+        <div class="product-unit">40LB</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Parliament Atta</div>
+      <div>
+        <div class="product-price">$12.99</div>
+        <div class="product-unit">20LB</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Deep Idli Rava</div>
+      <div>
+        <div class="product-price">$4.99</div>
+        <div class="product-unit">4LB</div>
+      </div>
+    </div>
+    <div class="product-card ">
+      
+      <div class="product-image-container">
+        <div class="no-image-placeholder">📦</div>
+      </div>
+      
+      <div class="product-name">Brio Sunflower Oil</div>
+      <div>
+        <div class="product-price">$15.99</div>
+        <div class="product-unit">5LT</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="footer-highlight">NOW WE ACCEPT AETNA FOOD CARD ALSO</div>
+    <div class="footer-info">📍 2431 W Main St, Norristown, PA - 19403</div>
+    <div class="footer-info">📧 starbazaarpa@gmail.com | 📞 484 986 0990</div>
+    <div class="footer-info">💰 Cash Discount 2%</div>
+    <div class="footer-disclaimer">
+      • NO RAIN CHECKS • WE ARE NOT RESPONSIBLE FOR ANY TYPOGRAPHICAL ERRORS<br>
+      • WE RESERVE THE RIGHT TO LIMIT THE QUANTITY • SALE VALID AT THIS LOCATION ONLY
+    </div>
+  </div>
+</body>
+</html>
+    
