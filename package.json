@@ -7,12 +7,14 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "ppt": "node scripts/generate-ppt.js"
   },
   "dependencies": {
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "handlebars": "^4.7.8",
+  "pptxgenjs": "^4.0.1",
     "ollama": "^0.5.11",
     "puppeteer": "^24.24.0"
   },
