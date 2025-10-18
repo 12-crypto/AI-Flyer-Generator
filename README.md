@@ -1,119 +1,151 @@
-# Grocery Flyer Generator
+# 🛒 AI Grocery Flyer Generator
 
-Generate polished, on-brand grocery flyers (PNG) from simple JSON or text data. The system uses Node.js, Handlebars for templating, and Puppeteer for export. A local LLM (Ollama) helps with analysis and parsing.
+**Generate professional grocery flyers from JSON data using AI-powered layout optimization.**
+
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+> Transform product data into print-ready flyers in minutes with AI-powered design and layout optimization.
 
 ## ✨ Features
-- 5-column symmetric product grid with consistent spacing and card heights
-- Logo, weekly banner with single-line dates, and a bold black footer
-- Embedded product images and logo (base64) for reliable export
-- PNG-only export for stability on macOS
-- Optional: generate a manager-ready PPT deck with the latest flyer
 
-## 🧰 Prerequisites
-- macOS (tested), Linux/Windows should work with Node + Chromium
-- Node.js 18+ and npm
-- Chromium is bundled via Puppeteer (auto-installed)
-- Optional (for AI-assisted parsing/analysis):
-	- Ollama installed and running locally
-	- Model: `llama2:7b` (or adjust in `.env`)
+- **5-column responsive grid** with perfect alignment
+- **AI-powered product categorization** and layout optimization
+- **PNG export** ready for print and digital use
+- **Embedded images** with no broken links
+- **Multiple templates** (weekly, anniversary, holiday)
+- **PowerPoint generation** for presentations
 
-## 📦 Installation
-1) Clone or copy this repository
-2) Install dependencies
+## 🚀 Quick Start
 
 ```bash
+# Install
+git clone https://github.com/12-crypto/AI-Flyer-Generator.git
+cd AI-Flyer-Generator
 npm install
+
+# Optional: Setup Ollama for AI features
+ollama pull llama2:7b && ollama serve
+
+# Generate flyer
+node index.js data/weekly-offers.json
 ```
 
-3) (Optional) Configure `.env`
+## 📋 Usage
 
-Create a `.env` file in the project root if you want to use Ollama:
+```bash
+# Basic usage
+node index.js data/weekly-offers.json
+node index.js --example
+node index.js --list
+
+# Development
+npm run dev          # Auto-reload mode
+node quick-test.js   # HTML-only test
+npm run ppt         # Generate presentation
+```
+
+## 📊 Data Format
+
+```json
+{
+  "saleInfo": {
+    "templateType": "weekly",
+    "storeName": "STAR BAZAAR",
+    "dateRange": "OCTOBER 10 TO OCTOBER 17, 2025",
+    "address": "Main St, PA ",
+    "phone": "XXX XXX XXXX"
+  },
+  "products": [
+    {
+      "name": "Laxmi Sonamasoori Rice",
+      "price": "$33.99",
+      "unit": "40LB",
+      "specialOffer": true,
+      "category": "rice",
+      "image": "./images/products/rice.jpg"
+    }
+  ]
+}
+```
+
+## 🏗️ Architecture
+
 
 ```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  JSON/Text Data │───▶│  Coordinator     │───▶│  Layout Agent   │
+│  • Products     │    │  Agent           │    │  • Grid Design  │
+│  • Sale Info    │    │  • Analysis      │    │  • Positioning  │
+│  • Images       │    │  • Planning      │    │  • Optimization │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │
+                                ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  PNG Export     │◀───│  Design Agent    │◀───│  Data Parser    │
+│  • Puppeteer    │    │  • HTML/CSS      │    │  • Text → JSON  │
+│  • Print Ready  │    │  • Handlebars    │    │  • Validation   │
+│  • Embedded IMG │    │  • Responsive    │    │  • Fallbacks    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+```
+
+### **Core Agents:**
+- **CoordinatorAgent** - Orchestrates workflow and AI analysis (Ollama LLM)
+- **DataParserAgent** - Converts text/JSON to structured data (Ollama + Regex)
+- **LayoutAgent** - Grid arrangement and positioning (JavaScript)
+- **DesignAgent** - HTML/CSS generation with Handlebars
+- **ExportAgent** - PNG export via Puppeteer
+
+## 📁 Project Structure
+
+```
+├── index.js                 # Main CLI
+├── agents/                  # AI agent modules
+├── data/                   # Input JSON files
+├── images/                 # Logos and product images
+├── output/generated-flyers/ # PNG exports
+├── scripts/generate-ppt.js # Presentation generator
+└── utils/ollamaClient.js   # LLM integration
+```
+
+## 🔧 Configuration
+
+Create `.env` file:
+```env
 OLLAMA_HOST=http://localhost:11434
 OLLAMA_MODEL=llama2:7b
 ```
 
-Start Ollama if using AI features:
+## 🛠️ Available Scripts
 
+| Command | Description |
+|---------|-------------|
+| `npm start` | Show CLI usage help |
+| `npm run dev` | Development mode with nodemon |
+| `npm test` | Run system health checks |
+| `npm run ppt` | Generate PowerPoint presentation |
+
+## 🐛 Troubleshooting
+
+**Puppeteer issues:**
+```bash
+rm -rf node_modules && npm install
+```
+
+**Missing images:**
+- Use relative paths from project root
+- PNG/JPG formats only
+
+**Ollama errors:**
 ```bash
 ollama serve
+ollama pull llama2:7b
 ```
 
-## 🖼️ Project Structure
-- `index.js` – CLI entry, orchestrates the full pipeline
-- `agents/` – modular steps: Coordinator, DataParser, Layout, Design, Export
-- `data/` – example input JSON files
-- `images/` – logo and optional footer promo images
-- `output/generated-flyers/` – exported PNG flyers
-- `output/presentations/` – generated PPT decks
-- `scripts/generate-ppt.js` – builds a PPT for management review
-
-## 📄 Data Format (JSON)
-Place a JSON file in `data/`, e.g. `data/weekly-offers.json`:
-
-```json
-{
-	"saleInfo": {
-		"templateType": "weekly",
-		"storeName": "STAR BAZAAR",
-		"dateRange": "OCTOBER 10 TO OCTOBER 17, 2025",
-		"address": "2431 W Main St, Norristown, PA - 19403",
-		"email": "starbazaarpa@gmail.com",
-		"phone": "484 986 0990",
-		"attractionText": "FRESH • QUALITY • SAVINGS",
-		"footerPromoText": "Free 1 Samosa And 1 Masala Tea With Shopping Worth $30"
-	},
-	"products": [
-		{
-			"name": "Laxmi Sonamasoori Rice",
-			"price": "$33.99",
-			"unit": "40LB",
-			"image": "./images/products/sonamasoori.png"
-		}
-	]
-}
-```
-
-Notes
-- `image` paths should be relative to the project root. Images are embedded as base64.
-- The logo is read from `./images/Star Bazaar.png` by default.
-
-## ▶️ Generate a Flyer (PNG)
-
-```bash
-# From project root
-node index.js data/weekly-offers.json
-```
-
-Output: `output/generated-flyers/flyer-weekly-YYYY-MM-DD.png`
-
-Tips
-- If using Ollama, ensure it’s running first (`ollama serve`).
-- You can also run `node index.js --example` to test the pipeline quickly.
-
-## 🧪 Quick HTML-only sanity test (optional)
-If you want to test the template rendering without export, use `quick-test.js` (if present) or create a small script that calls `DesignAgent.getTemplate()` and writes an HTML file.
-
-
-## 🧩 Troubleshooting
-- Puppeteer fails to launch Chromium
-	- Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
-	- Ensure no corporate proxy blocks the download; try a personal network
-- Export is blank or missing images
-	- Verify your image paths exist and are readable
-	- Use PNG/JPG files; avoid web URLs for now
-- Date wraps to two lines
-	- The template forces single-line dates. If your text still overflows, slightly shorten `saleInfo.dateRange` or reduce letter spacing.
-- Ollama errors / timeouts
-	- Make sure `ollama serve` is running and the model listed in `.env` is downloaded
-	- You can skip AI parsing by providing clean JSON in `data/`
-
-## ⚙️ Scripts
-- `npm start` – prints CLI usage
-- `npm run dev` – nodemon for development
-- `npm test` – basic Ollama health/JSON tests
-- `npm run ppt` – generate PPT deck
 
 ## 📜 License
-This project is provided as-is for internal/store use. Avoid distributing product images you don’t own.
+
+MIT License - Free for commercial use. Don't redistribute copyrighted product images.
+
+---
+
