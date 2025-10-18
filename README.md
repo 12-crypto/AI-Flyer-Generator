@@ -1,6 +1,6 @@
 # Grocery Flyer Generator
 
-Generate polished, on-brand grocery flyers (PNG) from simple JSON or text data. The system uses Node.js, Handlebars for templating, and Puppeteer for export. A local LLM (Ollama) helps with analysis and parsing, but JSON input works without AI.
+Generate polished, on-brand grocery flyers (PNG) from simple JSON or text data. The system uses Node.js, Handlebars for templating, and Puppeteer for export. A local LLM (Ollama) helps with analysis and parsing.
 
 ## ✨ Features
 - 5-column symmetric product grid with consistent spacing and card heights
