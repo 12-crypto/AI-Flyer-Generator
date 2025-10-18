@@ -14,7 +14,7 @@
 - **PNG export** ready for print and digital use
 - **Embedded images** with no broken links
 - **Multiple templates** (weekly, anniversary, holiday)
-- **PowerPoint generation** for presentations
+
 
 ## 🚀 Quick Start
 
